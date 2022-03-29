@@ -14,6 +14,13 @@ class MainWidget : public QWidget {
 public:
     explicit MainWidget(QWidget* parent = nullptr);
     ~MainWidget();
+    
+    int currentDeaths;
+    void incrementDeaths();
+    QHotkey *deathShortcut;
+
+protected:
+      void showEvent(QShowEvent *event);
 
 private slots:
     void onSetDeaths();
@@ -21,7 +28,8 @@ private slots:
 
 private:
     Ui::MainWidget *ui;
-    QHotkey *deathShortcut;
+    void onShowEvent();
+    bool firstOpen;
 };
 
 #endif
