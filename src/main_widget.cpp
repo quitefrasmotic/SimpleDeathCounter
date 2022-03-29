@@ -13,28 +13,17 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
 	connect(this->deathShortcut, &QHotkey::activated, this, &MainWidget::incrementDeaths);
    
    setWindowTitle("SimpleDeathCounter");
-   std::cout << "Program started" << std::endl;
+
+   // Set default values
+   this->deathShortcut->setShortcut(QKeySequence("Ctrl+Shift+Up"), true);
+   currentDeaths = 0;
+
+   std::cout << "Main widget started" << std::endl;
 }
 
 MainWidget::~MainWidget() {
    delete this->deathShortcut;
    delete ui;
-}
-
-void MainWidget::showEvent(QShowEvent *event)
-{
-    QWidget::showEvent(event);
-    onShowEvent();
-}
-
-void MainWidget::onShowEvent() {
-   if (firstOpen == false) {
-      return;
-   }
-
-   firstOpen = false;
-   this->deathShortcut->setShortcut(QKeySequence("Ctrl+Shift+Up"), true);
-   currentDeaths = 0;
 }
 
 void MainWidget::onSetDeaths() {
