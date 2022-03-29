@@ -25,7 +25,8 @@ FetchContent_MakeAvailable(qhotkey)
 
 add_executable(${PROJECT_NAME} 
     src/main.cpp
-    src/mainwidget.cpp
+    src/main_widget.cpp
+    src/main_widget.ui
 )
 
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets QHotkey::QHotkey)
