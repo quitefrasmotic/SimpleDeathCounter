@@ -75,7 +75,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="currentShortcutLabel">
+      <widget class="QLabel" name="currentShortcutSubtitleLabel">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
@@ -101,7 +101,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="currentHotkeyLabel">
+      <widget class="QLabel" name="currentShortcutLabel">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
