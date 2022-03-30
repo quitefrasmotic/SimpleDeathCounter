@@ -73,6 +73,17 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
 }
 
 MainWidget::~MainWidget() {
+   cout << "Closing widget, saving data.." << endl;
+   ofstream deathsFile("deaths.txt");
+   ofstream configFile("config.txt");
+
+   deathsFile << to_string(currentDeaths);
+   configFile << deathShortcut->shortcut().toString().toStdString();
+
+   deathsFile.close();
+   configFile.close();
+   cout << "Data saved" << endl;
+
    delete this->deathShortcut;
    delete ui;
 }
