@@ -1,7 +1,7 @@
 # SimpleDeathCounter
 ## A dead-simple, streamer-controlled OBS death counter for Windows and Linux
 
-This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.
+This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.<br/><br/>
 
 <p align="center">
   <img src="/img/linux-showcase.png" alt="Linux Showcase"><br/><br/>
