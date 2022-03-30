@@ -12,7 +12,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
    ui->setupUi(this);
    setWindowTitle("SimpleDeathCounter");
    
-   connect(this->ui->keySequenceEdit, &QKeySequenceEdit::keySequenceChanged, this, &MainWidget::onSetShortcut);
+   connect(this->ui->keySequenceEdit, &QKeySequenceEdit::editingFinished, this, &MainWidget::onSetShortcut);
    connect(this->ui->setDeathsButton, &QPushButton::clicked, this, &MainWidget::onSetDeaths);
    
 	connect(this->deathShortcut, &QHotkey::activated, this, &MainWidget::incrementDeaths);
@@ -93,9 +93,12 @@ void MainWidget::onSetDeaths() {
    this->ui->currentDeathsLabel->setNum(currentDeaths);
 }
 
-void MainWidget::onSetShortcut(const QKeySequence &sequence) {
-   this->deathShortcut->setShortcut(sequence, true);
-   this->ui->currentShortcutLabel->setText(sequence.toString());
+void MainWidget::onSetShortcut() {
+   QKeySequence newSequence = this->ui->keySequenceEdit->keySequence();
+   this->deathShortcut->setShortcut(newSequence, true);
+   this->ui->currentShortcutLabel->setText(newSequence.toString());
+   this->ui->keySequenceEdit->clearFocus();
+
    cout << "Death shortcut set" << endl;
 }
 
