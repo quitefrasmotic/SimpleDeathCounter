@@ -3,6 +3,12 @@
 
 This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.
 
+<p align="center">
+  <img src="/img/linux-showcase.png" alt="Linux Showcase">
+  <img src="/img/windows-showcase.png" alt="Windows Showcase"><br/>
+  <img src="/img/obs-showcase.png" alt="OBS Showcase">
+</p>
+
 ## More details
 Written in C++ using the Qt 5 Framework, this app provides an exceedingly lightweight and native experience on both Windows and Linux. It uses the amazing [QHotkey by Skycoder42](https://github.com/Skycoder42/QHotkey).
 
