@@ -14,7 +14,6 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
    
    connect(this->ui->keySequenceEdit, &QKeySequenceEdit::editingFinished, this, &MainWidget::onSetShortcut);
    connect(this->ui->setDeathsButton, &QPushButton::clicked, this, &MainWidget::onSetDeaths);
-   
 	connect(this->deathShortcut, &QHotkey::activated, this, &MainWidget::incrementDeaths);
 
    //// Data and config file management
@@ -69,18 +68,22 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
       configFile.close();
    }
 
+   //persistentDeathScribe.open(deathsFileName, std::ios::trunc);
+   //persistentDeathScribe << currentDeaths;
+   //persistentDeathScribe.flush();
    cout << "Main widget started" << endl;
 }
 
 MainWidget::~MainWidget() {
    cout << "Closing widget, saving data.." << endl;
-   ofstream deathsFile("deaths.txt");
+   //ofstream deathsFile("deaths.txt");
    ofstream configFile("config.txt");
 
-   deathsFile << to_string(currentDeaths);
+   //deathsFile << to_string(currentDeaths);
    configFile << deathShortcut->shortcut().toString().toStdString();
 
-   deathsFile.close();
+   //deathsFile.close();
+   //persistentDeathScribe.close();
    configFile.close();
    cout << "Data saved" << endl;
 
@@ -92,6 +95,12 @@ MainWidget::~MainWidget() {
 void MainWidget::onSetDeaths() {
    currentDeaths = this->ui->deathsSpinBox->value();
    this->ui->currentDeathsLabel->setNum(currentDeaths);
+   ofstream deathsFile("deaths.txt");
+   deathsFile << currentDeaths;
+   deathsFile.close();
+   //persistentDeathScribe.write(to_string(currentDeaths).c_str(), to_string(currentDeaths).size());
+   //persistentDeathScribe << currentDeaths;
+   //persistentDeathScribe.flush();
 
    cout << "Set deaths to: " + to_string(currentDeaths) << endl;
 }
@@ -108,6 +117,12 @@ void MainWidget::onSetShortcut() {
 void MainWidget::incrementDeaths() {
    currentDeaths++;
    this->ui->currentDeathsLabel->setNum(currentDeaths);
+   ofstream deathsFile("deaths.txt");
+   deathsFile << currentDeaths;
+   deathsFile.close();
+   //persistentDeathScribe << "";
+   //persistentDeathScribe << currentDeaths;
+   //persistentDeathScribe.flush();
 
    cout << "Incremented deaths to: " + to_string(currentDeaths) << endl;
 }

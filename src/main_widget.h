@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QHotkey>
+//#include <fstream>
 
 namespace Ui {
     class MainWidget;
@@ -16,15 +17,16 @@ public:
     ~MainWidget();
     
     int currentDeaths;
-    void incrementDeaths();
-    QHotkey *deathShortcut;
 
 private slots:
     void onSetDeaths();
-    void onSetShortcut(const QKeySequence &sequence);
+    void onSetShortcut();
+    void incrementDeaths();
 
 private:
     Ui::MainWidget *ui;
+    QHotkey *deathShortcut;
+    //std::ofstream persistentDeathScribe;
 };
 
 #endif
