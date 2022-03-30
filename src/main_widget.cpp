@@ -86,11 +86,14 @@ MainWidget::~MainWidget() {
 
    delete this->deathShortcut;
    delete ui;
+   cout << "Main widget closed" << endl;
 }
 
 void MainWidget::onSetDeaths() {
    currentDeaths = this->ui->deathsSpinBox->value();
    this->ui->currentDeathsLabel->setNum(currentDeaths);
+
+   cout << "Set deaths to: " + to_string(currentDeaths) << endl;
 }
 
 void MainWidget::onSetShortcut() {
@@ -105,5 +108,6 @@ void MainWidget::onSetShortcut() {
 void MainWidget::incrementDeaths() {
    currentDeaths++;
    this->ui->currentDeathsLabel->setNum(currentDeaths);
-   cout << "Incremented deaths - " + to_string(currentDeaths) << endl;
+
+   cout << "Incremented deaths to: " + to_string(currentDeaths) << endl;
 }
