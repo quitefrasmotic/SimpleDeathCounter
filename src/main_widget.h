@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QHotkey>
-//#include <fstream>
 
 namespace Ui {
     class MainWidget;
@@ -26,7 +25,6 @@ private slots:
 private:
     Ui::MainWidget *ui;
     QHotkey *deathShortcut;
-    //std::ofstream persistentDeathScribe;
 };
 
 #endif
