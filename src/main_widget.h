@@ -19,17 +19,12 @@ public:
     void incrementDeaths();
     QHotkey *deathShortcut;
 
-protected:
-      void showEvent(QShowEvent *event);
-
 private slots:
     void onSetDeaths();
     void onSetShortcut(const QKeySequence &sequence);
 
 private:
     Ui::MainWidget *ui;
-    void onShowEvent();
-    bool firstOpen;
 };
 
 #endif
