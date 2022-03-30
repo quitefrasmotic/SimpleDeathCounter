@@ -5,9 +5,18 @@ This app simply provides a **global keyboard shortcut** which is used to increas
 
 <p align="center">
   <img src="/img/linux-showcase.png" alt="Linux Showcase"><br/><br/>
-  <img src="/img/obs-showcase.png" alt="OBS Showcase" width="65%">
-  <img src="/img/windows-showcase.png" alt="Windows Showcase">
 </p>
+
+<table>
+  <tr>
+    <td>
+      <img src="/img/obs-showcase.png" alt="OBS Showcase">
+    </td>
+    <td>
+      <img src="/img/windows-showcase.png" alt="Windows Showcase" width="700px">
+    </td>
+  </tr>
+</table>
 
 ## More details
 Written in C++ using the Qt 5 Framework, this app provides an exceedingly lightweight and native experience on both Windows and Linux. It uses the amazing [QHotkey by Skycoder42](https://github.com/Skycoder42/QHotkey).
