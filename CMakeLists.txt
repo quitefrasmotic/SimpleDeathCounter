@@ -21,7 +21,13 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/Skycoder42/QHotkey.git
         GIT_TAG        master
 )
-FetchContent_MakeAvailable(qhotkey)
+#FetchContent_MakeAvailable(qhotkey)
+# Make package available manually so that I can exclude it from the build and packing
+FetchContent_GetProperties(qhotkey)
+if(NOT qhotkey_POPULATED)
+  FetchContent_Populate(qhotkey)
+  add_subdirectory(${qhotkey_SOURCE_DIR} ${qhotkey_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
 
 add_executable(${PROJECT_NAME} 
     src/main.cpp
