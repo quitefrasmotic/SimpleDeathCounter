@@ -35,13 +35,12 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
       currentDeaths = stoi(pastDeaths);
       this->ui->currentDeathsLabel->setNum(currentDeaths);
 
-      cout << pastDeaths << endl;
       deathsFile.close();
    }
    else {
       cout << "Deaths file does not exist, creating fresh.." << endl;
       ofstream deathsFile(deathsFileName);
-      deathsFile << "0";
+      deathsFile << 0;
       deathsFile.close();
 
       currentDeaths = 0;
