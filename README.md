@@ -1,7 +1,22 @@
 # SimpleDeathCounter
 ## A dead-simple, streamer-controlled OBS death counter for Windows and Linux
 
-This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.
+This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.<br/><br/>
+
+<p align="center">
+  <img src="/img/linux-showcase.png" alt="Linux Showcase"><br/><br/>
+</p>
+
+<table>
+  <tr>
+    <td>
+      <img src="/img/obs-showcase.png" alt="OBS Showcase">
+    </td>
+    <td>
+      <img src="/img/windows-showcase.png" alt="Windows Showcase" width="700px">
+    </td>
+  </tr>
+</table>
 
 ## More details
 Written in C++ using the Qt 5 Framework, this app provides an exceedingly lightweight and native experience on both Windows and Linux. It uses the amazing [QHotkey by Skycoder42](https://github.com/Skycoder42/QHotkey).
@@ -11,11 +26,17 @@ Written in C++ using the Qt 5 Framework, this app provides an exceedingly lightw
 <sub>This is also, perhaps obviously if you look at the code, a project I used to learn C++ and Qt. Because of this, there may be bugs and inefficiencies - sorry!</sub>
 
 ## Building
+I've only tested building on Linux - my CMake config may not work for other platforms.
 ### CMake
 ```
 $ cd SimpleDeathCounter
 $ cmake -B build -S .
 $ cmake --build build
+```
+Then to pack (NSIS using MINGW, tar.xz using Linux):
+```
+$ cd build
+$ cpack -C CPackConfig.cmake
 ```
 
 ## Licensing
