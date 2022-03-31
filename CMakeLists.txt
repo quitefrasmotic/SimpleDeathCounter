@@ -30,12 +30,62 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets QHotkey::QHotkey)
-target_include_directories(${PROJECT_NAME} PUBLIC ${qhotkey_SOURCE_DIR}/QHotkey)
+
+install(
+    TARGETS ${PROJECT_NAME}
+    DESTINATION bin/
+)
 
 if(MINGW)
     set(CMAKE_CXX_FLAGS "-mwindows")
+    set(CPACK_GENERATOR "NSIS" "TXZ")
+
+    # I have no idea how to properly find the dependency DLLs so I'm just copying them from a directory I manually placed them in
+    install(
+        DIRECTORY deploy_libs_win/
+        DESTINATION bin/
+    )
+    install(
+        DIRECTORY deploy_libs_win/platforms/
+        DESTINATION bin/platforms/
+    )
+    install(
+        DIRECTORY deploy_libs_win/styles/
+        DESTINATION bin/styles/
+    )
+elseif(LINUX)
+    set(CPACK_GENERATOR "TXZ")
+
+    install(
+        DIRECTORY deploy_libs_linux/
+        DESTINATION bin/
+    )
+    install(
+        DIRECTORY deploy_libs_linux/platforms/
+        DESTINATION bin/platforms/
+    )
+    install(
+        DIRECTORY deploy_libs_linux/styles/
+        DESTINATION bin/styles/
+    )
 endif()
 
-include(CPack)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+
+set(CPACK_CREATE_DESKTOP_LINKS "simple-death-counter")
+set(CPACK_MONOLITHIC_INSTALL TRUE)
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+
+set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
+set(CPACK_NSIS_DISPLAY_NAME "SimpleDeathCounter")
+set(CPACK_NSIS_MODIFY_PATH ON)
+set(CPACK_NSIS_PACKAGE_NAME "SimpleDeathCounter")
+
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A dead-simple, streamer-controlled OBS death counter for Windows and Linux")
+set(CPACK_PACKAGE_EXECUTABLES "simple-death-counter" "SimpleDeathCounter")
+set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY ${CPACK_PACKAGE_NAME})
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "simple-death-counter")
+set(CPACK_PACKAGE_VENDOR "daupaloffer")
+
+include(CPack)
