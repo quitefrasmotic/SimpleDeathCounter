@@ -26,11 +26,17 @@ Written in C++ using the Qt 5 Framework, this app provides an exceedingly lightw
 <sub>This is also, perhaps obviously if you look at the code, a project I used to learn C++ and Qt. Because of this, there may be bugs and inefficiencies - sorry!</sub>
 
 ## Building
+I've only tested building on Linux - my CMake config may not work for other platforms.
 ### CMake
 ```
 $ cd SimpleDeathCounter
 $ cmake -B build -S .
 $ cmake --build build
+```
+Then to pack (NSIS using MINGW, tar.xz using Linux):
+```
+$ cd build
+$ cpack -C CPackConfig.cmake
 ```
 
 ## Licensing
