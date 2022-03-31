@@ -43,6 +43,8 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
       ofstream deathsFile(deathsFileName);
       deathsFile << "0";
       deathsFile.close();
+
+      currentDeaths = 0;
    }
 
    // Config file
