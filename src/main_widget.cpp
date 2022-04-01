@@ -38,12 +38,12 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
       deathsFile.close();
    }
    else {
+      currentDeaths = 0;
+
       cout << "Deaths file does not exist, creating fresh.." << endl;
       ofstream deathsFile(deathsFileName);
       deathsFile << 0;
       deathsFile.close();
-
-      currentDeaths = 0;
    }
 
    // Config file
