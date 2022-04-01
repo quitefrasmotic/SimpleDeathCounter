@@ -38,13 +38,13 @@ This is also, perhaps obviously if you look at the code, a project I used to lea
 I've only tested building on Linux - my CMake config may not work for other platforms.
 ### CMake
 ```
-$ cd SimpleDeathCounter
-$ cmake -B build -S .
-$ cmake --build build
-```
-Then to package (NSIS using MINGW, tar.xz using Linux):
-```
+$ mkdir build
 $ cd build
+$ cmake -B . -S ../
+$ cmake --build .
+```
+Then to package (NSIS using MINGW, tar.xz using Linux) (optional):
+```
 $ cpack -C CPackConfig.cmake
 ```
 
