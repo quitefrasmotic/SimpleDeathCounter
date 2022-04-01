@@ -2,9 +2,16 @@
 #include "ui_main_widget.h"
 #include <QHotkey>
 #include <iostream>
-#include <filesystem>
 #include <fstream>
 #include <string>
+
+#if __has_include(<filesystem>)
+   #include <filesystem>
+   namespace filesystem = std::filesystem;
+#elif __has_include(<experimental/filesystem>)
+   #include <experimental/filesystem>
+   namespace filesystem = std::experimental::filesystem;
+#endif
 
 using namespace std;
 

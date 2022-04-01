@@ -32,7 +32,11 @@ add_executable(${PROJECT_NAME}
     src/main_widget.ui
 )
 
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets QHotkey::QHotkey)
+if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 8.0.0)
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets QHotkey::QHotkey)
+else()
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets QHotkey::QHotkey stdc++fs)
+endif()
 
 install(
     TARGETS ${PROJECT_NAME}
