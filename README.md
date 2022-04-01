@@ -42,7 +42,7 @@ $ cd SimpleDeathCounter
 $ cmake -B build -S .
 $ cmake --build build
 ```
-Then to package (NSIS using MINGW, tar.xz using Linux):
+Then to package (NSIS using MINGW, tar.xz using Linux) (optional):
 ```
 $ cd build
 $ cpack -C CPackConfig.cmake
