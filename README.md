@@ -1,11 +1,20 @@
 # SimpleDeathCounter
-## A dead-simple, streamer-controlled OBS death counter for Windows and Linux
-
-This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.<br/><br/>
 
 <p align="center">
-  <img src="/img/linux-showcase.png" alt="Linux Showcase"><br/><br/>
+  <img src="/img/linux-showcase.png" alt="Linux Showcase">
 </p>
+
+## A dead simple, streamer-controlled OBS death counter for Windows and Linux
+
+This app simply provides a **global keyboard shortcut** which is used to increase a number inside a text file which OBS shows with the Text source's "Read from file" option.
+
+**Therefore, setup is very easy:** 
+- Run the app
+- Create a Text source in OBS
+- Check "Read from file"
+- Select "deaths.txt" ~~in `%AppData%\simple-death-counter\` on Windows, or `~/.config/simple-death-counter/` on Linux.~~
+
+**NOTE:** This location isn't implemented yet, right now it's in the bin/ folder where the app is installed. Because of this, make sure to install the app where it has permission to write - e.g. your Documents folder.<br/><br/>
 
 <table>
   <tr>
@@ -33,7 +42,7 @@ $ cd SimpleDeathCounter
 $ cmake -B build -S .
 $ cmake --build build
 ```
-Then to pack (NSIS using MINGW, tar.xz using Linux):
+Then to package (NSIS using MINGW, tar.xz using Linux):
 ```
 $ cd build
 $ cpack -C CPackConfig.cmake
