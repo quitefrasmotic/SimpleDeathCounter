@@ -32,7 +32,7 @@ Written in C++ using the Qt 5 Framework, this app provides an exceedingly lightw
 
 **Linux note:** Unfortunately this app doesn't support global hotkeys on Wayland due to the protocol's immaturity in this area. However, work on this seems to be progressing.
 
-<sub>This is also, perhaps obviously if you look at the code, a project I used to learn C++ and Qt. Because of this, there may be bugs and inefficiencies - sorry!</sub>
+This is also, perhaps obviously if you look at the code, a project I used to learn C++ and Qt. Because of this, there may be bugs and inefficiencies - sorry!
 
 ## Building
 I've only tested building on Linux - my CMake config may not work for other platforms.
