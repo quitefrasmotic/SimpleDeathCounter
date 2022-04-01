@@ -1,11 +1,12 @@
 #include "main_widget.h"
 #include <QApplication>
-#include <QHotkey>
 #include <iostream>
+
+using namespace std;
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-    std::cout << "Application started" << std::endl;
+    cout << "Application started" << endl;
 
     MainWidget window;
     window.show();

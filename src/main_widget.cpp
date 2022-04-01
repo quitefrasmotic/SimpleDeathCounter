@@ -11,10 +11,10 @@ using namespace std;
 MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget), deathShortcut(new QHotkey(this)) {
    ui->setupUi(this);
    setWindowTitle("SimpleDeathCounter");
-   
+
    connect(this->ui->keySequenceEdit, &QKeySequenceEdit::editingFinished, this, &MainWidget::onSetShortcut);
    connect(this->ui->setDeathsButton, &QPushButton::clicked, this, &MainWidget::onSetDeaths);
-	connect(this->deathShortcut, &QHotkey::activated, this, &MainWidget::incrementDeaths);
+   connect(this->deathShortcut, &QHotkey::activated, this, &MainWidget::incrementDeaths);
 
    //// Data and config file management
    string deathsFileName = "deaths.txt";
@@ -57,7 +57,6 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
       this->deathShortcut->setShortcut(shortcutCombo, true);
       this->ui->currentShortcutLabel->setText(shortcutCombo.toString());
 
-      cout << shortcutCombo.toString().toStdString() << endl;
       configFile.close();
    }
    else {

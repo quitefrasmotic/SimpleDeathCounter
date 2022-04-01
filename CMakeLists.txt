@@ -22,7 +22,7 @@ FetchContent_Declare(
         GIT_TAG        master
 )
 #FetchContent_MakeAvailable(qhotkey)
-# Make package available manually so that I can exclude it from the build and packing
+# Make package available manually so that I can exclude it from the build and packaging
 FetchContent_GetProperties(qhotkey)
 if(NOT qhotkey_POPULATED)
   FetchContent_Populate(qhotkey)
@@ -46,7 +46,7 @@ if(MINGW)
     set(CMAKE_CXX_FLAGS "-mwindows")
     set(CPACK_GENERATOR "NSIS" "TXZ")
 
-    # I have no idea how to properly find the dependency DLLs so I'm just copying them from a directory I manually placed them in
+    # I have no idea how to properly find the dependency DLLs so I'm just copying them from a directory I manually placed them in for now
     install(
         DIRECTORY deploy_libs_win/
         DESTINATION bin/
@@ -88,7 +88,7 @@ set(CPACK_NSIS_DISPLAY_NAME "SimpleDeathCounter")
 set(CPACK_NSIS_MODIFY_PATH ON)
 set(CPACK_NSIS_PACKAGE_NAME "SimpleDeathCounter")
 
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A dead-simple, streamer-controlled OBS death counter for Windows and Linux")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A dead simple, streamer-controlled OBS death counter for Windows and Linux")
 set(CPACK_PACKAGE_EXECUTABLES "simple-death-counter" "SimpleDeathCounter")
 set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY ${CPACK_PACKAGE_NAME})
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "simple-death-counter")
